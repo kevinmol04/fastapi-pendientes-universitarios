@@ -1,0 +1,117 @@
+{
+	"info": {
+		"_postman_id": "1b34898e-e4ca-4f8b-b5ab-18b0d2e02b8a",
+		"name": "API Pendientes Universitarios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48716638",
+		"_collection_link": "https://kevinmolp04-9175775.postman.co/workspace/Kevin-Molina's-Workspace~2f1e22c1-1cb1-44f7-828f-855ede4e4ec3/collection/48716638-1b34898e-e4ca-4f8b-b5ab-18b0d2e02b8a?action=share&source=collection_link&creator=48716638"
+	},
+	"item": [
+		{
+			"name": "Listar tareas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/tasks",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear tarea",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Examen de Cálculo\",\r\n  \"description\": \"Unidad 3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/tasks",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener detalle de tarea",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/tasks/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"tasks",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar tarea",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Examen de Cálculo\",\r\n  \"description\": \"Unidad 3\",\r\n  \"status\": \"in_progress\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/tasks/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"tasks",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar tarea",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/tasks/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"tasks",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
