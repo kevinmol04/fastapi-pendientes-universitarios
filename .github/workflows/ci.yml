@@ -24,10 +24,13 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+          pip install coverage
 
-      - name: Run tests with coverage
+      - name: Run tests and generate coverage.xml
         run: |
-          pytest -q --cov=app --cov-report=xml
+          coverage run --source=app -m pytest -q
+          coverage xml -i -o coverage.xml
+          head -n 40 coverage.xml  # debug: verifica rutas
 
       # SonarQube self-hosted (servidor del profe)
       - name: SonarQube Scan
