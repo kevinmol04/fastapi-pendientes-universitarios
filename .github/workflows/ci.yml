@@ -29,9 +29,8 @@ jobs:
       - name: Run tests and generate coverage.xml
         run: |
           coverage run --source=app -m pytest -q
-          coverage xml -i -o coverage.xml --relative-source
+          coverage xml -i -o coverage.xml
           head -n 40 coverage.xml  # debug: verifica rutas
-
 
       # SonarQube self-hosted (servidor del profe)
       - name: SonarQube Scan
