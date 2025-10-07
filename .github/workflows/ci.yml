@@ -51,3 +51,8 @@ jobs:
         with:
           name: coverage.xml
           path: coverage.xml
+
+      - name: Fix coverage paths
+        run: |
+          sed -i 's|/home/runner/work/fastapi-pendientes-universitarios/fastapi-pendientes-universitarios/||g' coverage.xml
+
