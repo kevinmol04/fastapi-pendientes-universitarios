@@ -29,8 +29,9 @@ jobs:
       - name: Run tests and generate coverage.xml
         run: |
           coverage run --source=app -m pytest -q
-          coverage xml -i -o coverage.xml
+          coverage xml -i -o coverage.xml --relative-source
           head -n 40 coverage.xml  # debug: verifica rutas
+
 
       # SonarQube self-hosted (servidor del profe)
       - name: SonarQube Scan
@@ -51,8 +52,4 @@ jobs:
         with:
           name: coverage.xml
           path: coverage.xml
-
-      - name: Fix coverage paths
-        run: |
-          sed -i 's|/home/runner/work/fastapi-pendientes-universitarios/fastapi-pendientes-universitarios/||g' coverage.xml
 
