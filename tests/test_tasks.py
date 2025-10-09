@@ -50,3 +50,20 @@ def test_reject_empty_title():
 def test_reject_invalid_status():
     resp = client.post("/tasks", json={"title": "TP", "status": "weird"})
     assert resp.status_code == 422
+
+def test_get_task_not_found():
+    resp = client.get("/tasks/999")  # no existe
+    assert resp.status_code == 404
+    assert resp.json()["detail"] == "Task not found"
+
+
+def test_update_task_not_found():
+    resp = client.put("/tasks/999", json={"status": "done"})
+    assert resp.status_code == 404
+    assert resp.json()["detail"] == "Task not found"
+
+
+def test_delete_task_not_found():
+    resp = client.delete("/tasks/999")
+    assert resp.status_code == 404
+    assert resp.json()["detail"] == "Task not found"
